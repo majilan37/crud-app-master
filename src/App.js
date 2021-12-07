@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import AddUser from "./components/AddUser";
+import EditUser from "./components/EditUser";
+import Home from "./components/Home";
+import { Routes, Route, useParams} from 'react-router-dom'
+import { useContext } from "react";
+import { StateContext } from "./redux/StateProvider";
+ 
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="py-16">
+      <main className='max-w-3xl mx-auto px-6 py-4'>
+        <Routes>
+          <Route path='/' element={<Home />}  />
+          <Route path='/add-user' element={<AddUser />} />
+          <Route path='/edit-user/:id' element={<EditUser />} />
+        </Routes>
+      </main>
     </div>
   );
 }
